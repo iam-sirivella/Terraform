@@ -1,0 +1,14 @@
+step 01:ssh -i hari-key-pair-provisioner ubuntu@<public-ip>
+step 02:source /home/ubuntu/venv/bin/activate
+if fails:
+python3 -m venv /home/ubuntu/venv
+source /home/ubuntu/venv/bin/activate
+pip install flask
+step 03:Run Flask manually
+nohup python /home/ubuntu/app.py > flask.log 2>&1 &
+step 04:- Confirm Flask is running:
+ps aux | grep app.py
+ss -tuln | grep 5000
+curl http://localhost:5000
+step  06: Access externally:
+curl http://<public-ip>:5000
